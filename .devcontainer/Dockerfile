@@ -1,10 +1,23 @@
-FROM openjdk:8-jre
+# Sử dụng hình ảnh chính thức của Ubuntu
+FROM ubuntu:20.04
 
-# Tạo một thư mục để chứa server Minecraft
-WORKDIR /minecraft-server
+# Cài đặt OpenJDK 8 với apt-get
+RUN apt-get update && \
+    apt-get install -y openjdk-8-jdk && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
-# Download và chạy server Minecraft
-RUN wget https://papermc.io/api/v2/projects/paper/versions/1.17/builds/392/downloads/paper-1.17-392.jar -O server.jar
+# Các lệnh khác nếu cần
+# ...
 
-# Chạy server khi Codespace được khởi động
-CMD ["java", "-Xmx8G", "-jar", "server.jar"]
+# Ví dụ: Tạo thư mục và di chuyển vào đó
+WORKDIR /app
+
+# Copy các tệp và thư mục cần thiết vào container (nếu cần)
+# COPY ./your-application.jar /app/your-application.jar
+
+# Các lệnh khác nếu cần
+# ...
+
+# CMD để chạy ứng dụng hoặc lệnh mặc định khi container được khởi chạy
+# CMD ["java", "-jar", "/app/your-application.jar"]
