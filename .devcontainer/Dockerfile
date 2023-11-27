@@ -20,4 +20,4 @@ WORKDIR /purpur
 # ...
 
 # CMD để chạy ứng dụng hoặc lệnh mặc định khi container được khởi chạy
-# CMD ["java", "-jar", "/app/your-application.jar"]
+# CMD ["java", "-jar", "/purpur/server.jar"]
