@@ -3,7 +3,9 @@ FROM ubuntu:20.04
 
 # Cài đặt OpenJDK 8 với apt-get
 RUN apt-get update && \
-    apt-get install -y openjdk-8-jdk && \
+    apt-get install -y openjdk-17-jdk && \
+    apt-get install wget \
+    wget -O server.jar "https://api.purpurmc.org/v2/purpur/1.20.2/2092/download" \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
@@ -11,7 +13,7 @@ RUN apt-get update && \
 # ...
 
 # Ví dụ: Tạo thư mục và di chuyển vào đó
-WORKDIR /app
+WORKDIR /purpur
 
 # Copy các tệp và thư mục cần thiết vào container (nếu cần)
 # COPY ./your-application.jar /app/your-application.jar
