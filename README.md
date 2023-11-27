@@ -1,2 +1,0 @@
-# MCServerCodespace
-kcj
