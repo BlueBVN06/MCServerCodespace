@@ -4,6 +4,7 @@ FROM ubuntu:20.04
 # Cài đặt OpenJDK 8 với apt-get
 RUN apt-get update && \
     apt-get install -y openjdk-21-jdk && \
+    apt-get install ufw && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
