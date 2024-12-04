@@ -1,10 +1,12 @@
 # Sử dụng hình ảnh chính thức của Ubuntu
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 # Cài đặt OpenJDK 8 với apt-get
 RUN apt-get update && \
     apt-get install -y openjdk-21-jdk && \
     apt install -y iproute2 && \
+    apt install -y wget && \
+    apt install -y net-tools && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
